@@ -34,7 +34,7 @@
                    <span class="text-center text-success">{{ session('success') }}</span>
                 @endif
                 <input class="field" id="photo_file" name="photos[]" type="file" multiple="">
-                <p class="text-13">( Width:640px and Height:360px )</p>
+                <p class="text-13">( Please choose the images having Width:1024px and Height:768px )</p>
                 @if ($errors->any())     
                   <span class="text-center text-danger">{{$errors->first()}}</span>
                 @endif
@@ -166,7 +166,7 @@
           },
           error: function (request, error) {
             // This callback function will trigger on unsuccessful action
-            show_error_message('Det har oppstått nettverksfeil vennligst prøv igjen');
+            show_error_message('Network error has occurred please try again');
           }
         });
         $('#photo_file').val('');
@@ -192,7 +192,7 @@
           },
           error: function (request, error) {
             // This callback function will trigger on unsuccessful action
-            show_error_message('Det har oppstått nettverksfeil vennligst prøv igjen');
+            show_error_message('Network error has occurred please try again');
           }
         });
     })

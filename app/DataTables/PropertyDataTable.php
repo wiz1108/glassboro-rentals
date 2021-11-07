@@ -90,7 +90,7 @@ class PropertyDataTable extends DataTable
             ->addColumn(['data' => 'host_name', 'name' => 'users.first_name', 'title' => 'Host Name'])
             ->addColumn(['data' => 'space_type_name', 'name' => 'space_type.name', 'title' => 'Space Type'])
             ->addColumn(['data' => 'property_status', 'name' => 'properties.status', 'title' => 'Status'])
-            ->addColumn(['data' => 'property_recomended', 'name' => 'properties.recomended', 'title' => 'Recomended'])
+            // ->addColumn(['data' => 'property_recomended', 'name' => 'properties.recomended', 'title' => 'Recomended'])
             ->addColumn(['data' => 'property_created_at', 'name' => 'properties.created_at', 'title' => 'Date'])
             ->addColumn(['data' => 'action', 'name' => 'action', 'title' => 'Action', 'orderable' => false, 'searchable' => false])
             ->parameters([

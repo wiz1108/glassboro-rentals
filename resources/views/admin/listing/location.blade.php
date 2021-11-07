@@ -51,27 +51,27 @@
             <span class="text-danger">{{ $errors->first('latitude') }}</span>
           </div>
         </div>
-        <div class="row">
+        <div class="row none">
           <div class="col-md-8 mb20">
             <label class="label-large">{{trans('messages.listing_location.address_line_2')}}</label>
             <input type="text" name="address_line_2" id="address_line_2" value="{{ $result->property_address->address_line_2  }}" class="form-control" placeholder="Apt., suite, building access code">
           </div>
         </div>
-        <div class="row">
+        <div class="row none">
           <div class="col-md-8 mb20">
             <label class="label-large">{{trans('messages.listing_location.city_town_district')}} <span class="text-danger">*</span></label>
             <input type="text" name="city" id="city" value="{{ $result->property_address->city  }}" class="form-control">
             <span class="text-danger">{{ $errors->first('city') }}</span>
           </div>
         </div>
-        <div class="row">
+        <div class="row none">
           <div class="col-md-8 mb20">
             <label class="label-large">{{trans('messages.listing_location.state_province')}} <span class="text-danger">*</span></label>
             <input type="text" name="state" id="state" value="{{ $result->property_address->state  }}" class="form-control">
             <span class="text-danger">{{ $errors->first('state') }}</span>
           </div>
         </div>
-        <div class="row">
+        <div class="row none">
           <div class="col-md-8 mb20">
             <label class="label-large">{{trans('messages.listing_location.zip_postal_code')}}</label>
             <input type="text" name="postal_code" id="postal_code" value="{{ $result->property_address->postal_code }}" class="form-control">

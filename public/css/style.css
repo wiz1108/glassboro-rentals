@@ -1157,6 +1157,17 @@ ul.customlisting li {
 		height: 32px;
 	}
 
+	.img-170x70 {
+		width: 170px;
+		height: 70px;
+		padding: 10px;
+	}
+
+	.img-130x55 {
+		width: 130px;
+		height: 55px;
+	}
+
 	.img-60x60 {
 		width: 60px;
 		height: 60px;

@@ -1,6 +1,6 @@
 <div class="box box-info box_info">
     <div class="panel-body">
-    <h4 class="all_settings">Property Settings</h4>
+        <h4 class="all_settings">Property Settings</h4>
         <?php
         $requestUri = request()->segment(4);
         ?>
@@ -8,7 +8,7 @@
             <li class="{{ ($requestUri == 'basics') ? 'active' : ''  }}">
                 <a href='{{ url("admin/listing/$result->id/basics") }}' data-group="profile">Basics</a>
             </li>
-    
+
             <li class="{{ ($requestUri == 'description') ? 'active' : ''  }}">
                 <a href='{{ url("admin/listing/$result->id/description") }}' data-group="profile">Description</a>
             </li>
@@ -29,13 +29,13 @@
                 <a href='{{ url("admin/listing/$result->id/pricing") }}' data-group="profile">Pricing</a>
             </li>
 
-            <li class="{{ ($requestUri == 'booking') ? 'active' : ''  }}">
+            <li class="{{ ($requestUri == 'booking') ? 'active' : ''  }} none">
                 <a href='{{ url("admin/listing/$result->id/booking") }}' data-group="profile">Booking</a>
             </li>
 
-            <li class="{{ ($requestUri == 'calender') ? 'active' : ''  }}">
+            <li class="{{ ($requestUri == 'calender') ? 'active' : ''  }} none">
                 <a href='{{ url("admin/listing/$result->id/calender") }}' data-group="profile">Calendar</a>
-            </li>     
+            </li>
 
         </ul>
     </div>

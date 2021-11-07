@@ -293,11 +293,9 @@ class PropertiesController extends Controller
             if ($_FILES) {
                 $rules = array(
                     'photos'   => 'required',
-                    'photos.*' => 'image|mimes:jpg,jpeg,bmp,png,gif',
-                    'photos.*' => 'dimensions:min_width=640,min_height=360',
+                    'photos.*' => 'image|mimes:jpg,jpeg,bmp,png,gif,JPG,PNG,BMP,JPEG,GIF',
                 );
 
-            
                 $fieldNames = array(
                     'photos'  => 'Photos',
                     'photos.*'=> 'Photos'
@@ -325,7 +323,7 @@ class PropertiesController extends Controller
                                 mkdir($path, 0777, true);
                             }
                                                        
-                            if ($ext == 'png' || $ext == 'jpg' || $ext == 'jpeg' || $ext == 'gif') {
+                            if ($ext == 'png' || $ext == 'jpg' || $ext == 'jpeg' || $ext == 'gif' || $ext == 'PNG' || $ext == 'JPG' || $ext == 'JPEG' || $ext == 'GIF') {
                                 if (move_uploaded_file($tmp_name, $path."/".$name)) {
                                     $photo_exist_first   = PropertyPhotos::where('property_id', $property_id)->count();
                                    
@@ -394,7 +392,11 @@ class PropertiesController extends Controller
                     $property_steps->pricing = 1;
                     $property_steps->save();
 
-                    return redirect('admin/listing/'.$property_id.'/booking');
+                    $properties               = Properties::find($property_id);
+                    $properties->status       = 'Listed';
+                    $properties->save();
+
+                    return redirect('admin/properties');
                 }
             }
         } elseif ($step == 'booking') {

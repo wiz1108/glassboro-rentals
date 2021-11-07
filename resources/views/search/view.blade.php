@@ -34,7 +34,7 @@
                                                             </div>
                                                         </div>
     
-                                                        <div class="col-md-12 p-0">
+                                                        <div class="col-md-12 p-0 none">
                                                             <div class="row">
                                                                 <div class="col-md-9">
                                                                     <div class="d-flex" id="daterange-btn">
@@ -89,7 +89,7 @@
                                 </div>
                             </li>
     
-                            <li class="list-inline-item  mt-4">
+                            <li class="list-inline-item  mt-4 none">
                                 <button class="btn text-16 border border-r-25 pl-4 pr-4 dropdown-toggle" type="button" id="dropdownRoomType" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{trans('messages.search.room_type')}}
                                 </button>
@@ -139,7 +139,7 @@
                                 </div>
                             </li>
     
-                            <li class="list-inline-item  mt-4">
+                            <li class="list-inline-item  mt-4 none">
                                 <button class="btn text-16 border border-r-25 pl-4 pr-4 dropdown-toggle" type="button" id="dropdownBookingType" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{trans('messages.listing_book.booking_type')}}
                                 </button>
@@ -175,7 +175,7 @@
                                 </div>
                             </li>
     
-                            <li class="list-inline-item  mt-4">
+                            <li class="list-inline-item  mt-4 none">
                                 <button class="btn text-16 border border-r-25 pl-4 pr-4 dropdown-toggle" type="button" id="dropdownPrice" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{trans('messages.search.price_range')}}
                                 </button>
@@ -205,7 +205,7 @@
                                 </div>
                             </li>
     
-                            <li class="list-inline-item  mt-4">
+                            <li class="list-inline-item  mt-4 none">
                                 <button type="button"  id="more_filters"   class="font-weight-500 btn text-16 border border-r-25 pl-4 pr-4" data-toggle="modal" data-target="#exampleModalCenter">
                                     {{ trans('messages.search.more_filters') }}
                                 </button>
@@ -725,7 +725,7 @@
                                                                     +'</div>'
                                                                 
                                                                     +'<div>'
-                                                                        +'<span class="font-weight-700 text-18">'+symbolWithPrice+'</span> / {{trans('messages.property_single.night')}}'
+                                                                        +'<span class="font-weight-700 text-18">'+symbolWithPrice+'</span> / Month'
                                                                     +'</div>'
                                                                 +'</div>'
                                                             +'</div>'
@@ -784,20 +784,20 @@
                                                             +'</p>'
 
                                                             +'<div class="review-0 mt-4">'
-                                                                +'<div class="d-flex justify-content-between">'
-                                                                    +'<div>'
+                                                                +'<div class="d-flex justify-content-end">'
+                                                                    +'<div class="none">'
                                                                         +'<span><i class="fa fa-star text-14 secondary-text-color"></i>'+' '+ avg_rating
                                                                             +' '+ '('+reviews_count+')</span>'
                                                                     +'</div>'
                                                                 
                                                                     +'<div>'
-                                                                        +'<span class="font-weight-700 text-20">'+symbolWithPrice+'</span> / {{trans('messages.property_single.night')}}'
+                                                                        +'<span class="font-weight-700 text-20">'+symbolWithPrice+'</span> / Month'
                                                                     +'</div>'
                                                                 +'</div>'
                                                             +'</div>'
 
                                                             +'<ul class="list-inline mt-2 pb-3">'
-                                                                +'<li class="list-inline-item border rounded-3 p-1 mt-4 pl-3 pr-3">'
+                                                                +'<li class="list-inline-item border rounded-3 p-1 mt-4 pl-3 pr-3 none">'
                                                                     +'<p class="text-center mb-0">'
                                                                         +'<i class="fas fa-bed text-20 d-none d-sm-inline-block text-muted"></i> '
                                                                         +properties[key].accommodates

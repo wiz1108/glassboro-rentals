@@ -1,14 +1,12 @@
 @extends('admin.template')
 @section('main')
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-     <!-- Main content -->
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Main content -->
     <section class="content">
-      <!-- Small boxes (Stat box) -->
-      <div class="row">
-        <!-- ./col -->
+        <!-- Small boxes (Stat box) -->
+        <!-- <div class="row">
         <div class="col-lg-4 col-xs-6">
-          <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
               <h3>{{ $total_users_count }}</h3>
@@ -21,9 +19,7 @@
             <a href="{{ url('admin/customers') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
-        <!-- ./col -->
         <div class="col-lg-4 col-xs-6">
-          <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
               <h3>{{ $total_property_count }}</h3>
@@ -37,7 +33,6 @@
           </div>
         </div>
         <div class="col-lg-4 col-xs-6">
-          <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
               <h3>{{ $total_reservations_count }}</h3>
@@ -50,11 +45,8 @@
             <a href="{{ url('admin/bookings') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
-        <!-- ./col -->
 
-        <!-- ./col -->
         <div class="col-lg-4 col-xs-6">
-          <!-- small box -->
           <div class="small-box bg-purple">
             <div class="inner">
               <h3>{{ $today_users_count }}</h3>
@@ -67,9 +59,7 @@
             <a href="{{ url('admin/customers') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
-        <!-- ./col -->
         <div class="col-lg-4 col-xs-6">
-          <!-- small box -->
           <div class="small-box bg-maroon">
             <div class="inner">
               <h3>{{ $today_property_count }}</h3>
@@ -83,7 +73,6 @@
           </div>
         </div>
         <div class="col-lg-4 col-xs-6">
-          <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
               <h3>{{ $today_reservations_count }}</h3>
@@ -96,97 +85,103 @@
             <a href="{{ url('admin/bookings') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
-        <!-- ./col -->
-      </div>
-      <!-- /.row -->
-      <!-- /.content -->
-      <div class="row">
-        <div class="col-md-12">
-          <!-- LINE CHART -->
-          <div class="box box-info">
-            <div class="box-header with-border">
-              <h3 class="box-title">Latest Property</h3>
+      </div> -->
+        <!-- /.row -->
+        <!-- /.content -->
+        <div class="row">
+            <div class="col-md-12">
+                <!-- LINE CHART -->
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Latest Property</h3>
+                    </div>
+                    <div class="box-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Host Name</th>
+                                        <th>Space type</th>
+                                        <th width="15%">Date</th>
+                                        <th width="5%">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if(!empty($propertiesList))
+                                    @foreach($propertiesList as $property)
+                                    <tr>
+                                        <td><a
+                                                href="{{url('admin/listing/'.$property->properties_id).'/basics'}}">{{$property->property_name}}</a>
+                                        </td>
+                                        <td><a
+                                                href="{{ url('admin/edit-customer/'.$property->host_id) }}">{{$property->first_name.' '.$property->last_name}}</a>
+                                        </td>
+                                        <td>{{$property->property_name}}</td>
+                                        <td>{{dateFormat($property->property_created_at)}}</td>
+                                        <td>{{$property->property_status}}</td>
+                                    </tr>
+                                    @endforeach
+                                    @endif
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
             </div>
-            <div class="box-body">
-           <div class="table-responsive">
-              <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Host Name</th>
-                      <th>Space type</th>
-                      <th width="15%">Date</th>
-                      <th width="5%">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  @if(!empty($propertiesList))
-                    @foreach($propertiesList  as $property)
-                      <tr>
-                        <td><a href="{{url('admin/listing/'.$property->properties_id).'/basics'}}" >{{$property->property_name}}</a></td>
-                        <td><a href="{{ url('admin/edit-customer/'.$property->host_id) }}">{{$property->first_name.' '.$property->last_name}}</a></td>
-                        <td>{{$property->property_name}}</td>
-                        <td>{{dateFormat($property->property_created_at)}}</td>
-                        <td>{{$property->property_status}}</td>
-                      </tr>
-                      @endforeach
-                    @endif
-                  </tbody>
-                </table>
-           </div>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
         </div>
-      </div>
 
-      <!-- /.content -->
-      <div class="row">
-        <div class="col-md-12">
-          <!-- LINE CHART -->
-          <div class="box box-info">
-            <div class="box-header with-border">
-              <h3 class="box-title">Latest Bookings</h3>
+        <!-- /.content -->
+        <!-- <div class="row">
+            <div class="col-md-12">
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Latest Bookings</h3>
+                    </div>
+                    <div class="box-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Host Name</th>
+                                        <th>Guest Name</th>
+                                        <th>Property Name</th>
+                                        <th>Total Amount</th>
+                                        <th>Date</th>
+                                        <th width="5%">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if(!empty($bookingList))
+                                    @foreach($bookingList as $booking)
+                                    <tr>
+                                        <td><a
+                                                href="{{url('admin/bookings/detail/'.$booking->id)}}">{{$booking->host_name}}</a>
+                                        </td>
+                                        <td><a
+                                                href="{{ url('admin/edit-customer/'.$booking->user_id) }}">{{$booking->guest_name}}</a>
+                                        </td>
+                                        <td><a
+                                                href="{{url('admin/listing/'.$booking->property_id).'/basics'}}">{{$booking->property_name}}</a>
+                                        </td>
+                                        <td>{!! moneyFormat($booking->currency->symbol, $booking->total_amount) !!}</td>
+                                        <td>{{dateFormat($booking->created_at)}}</td>
+                                        <td>{{$booking->status}}</td>
+                                    </tr>
+                                    @endforeach
+                                    @endif
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="box-body">
-            <div class="table-responsive">
-              <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th>Host Name</th>
-                      <th>Guest Name</th>
-                      <th>Property Name</th>
-                      <th>Total Amount</th>
-                      <th>Date</th>
-                      <th width="5%">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  @if(!empty($bookingList))
-                    @foreach($bookingList  as $booking)
-                      <tr>
-                        <td><a href="{{url('admin/bookings/detail/'.$booking->id)}}" >{{$booking->host_name}}</a></td>
-                        <td><a href="{{ url('admin/edit-customer/'.$booking->user_id) }}">{{$booking->guest_name}}</a></td>
-                        <td><a href="{{url('admin/listing/'.$booking->property_id).'/basics'}}" >{{$booking->property_name}}</a></td>
-                        <td>{!! moneyFormat($booking->currency->symbol, $booking->total_amount) !!}</td>
-                        <td>{{dateFormat($booking->created_at)}}</td>
-                        <td>{{$booking->status}}</td>
-                      </tr>
-                      @endforeach
-                    @endif
-                  </tbody>
-                </table>
-            </div>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-        </div>
-      </div>
+        </div> -->
 
     </section>
     <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+</div>
+<!-- /.content-wrapper -->
 @stop

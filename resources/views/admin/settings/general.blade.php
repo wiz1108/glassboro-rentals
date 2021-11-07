@@ -25,9 +25,8 @@ $form_data = [
 			['type' => 'text', 'class' => '', 'label' => 'Name', 'name' => 'name', 'value' => $result['name']],
             ['type' => 'file', 'class' => '', 'label' => 'Logo', 'name' => "photos[logo]", 'value' => '', 'image' => url($logoPath), 'custom_span' =>$result['logo'], 'custom_company_logo' => $result['logo']] ,
       		['type' => 'file', 'class' => 'validate_field', 'label' => 'Favicon', 'name' => "photos[favicon]", 'value' => '', 'image' => url($faviconPath), 'custom_span2' =>$result['favicon'], 'custom_company_favicon' => $result['favicon']],
-      		['type' => 'textarea', 'class' => 'validate_field', 'label' => 'Head Code', 'name' => 'head_code', 'value' => $result['head_code']],
       		['type' => 'select', 'options' => $currency, 'class' => 'validate_field', 'label' => 'Default Currency', 'name' => 'default_currency', 'value' => $result['default_currency']],
-              ['type' => 'select', 'options' => $language, 'class' => 'validate_field', 'label' => 'Default Language', 'name' => 'default_language', 'value' => $result['default_language']],
+            ['type' => 'select', 'options' => $language, 'class' => 'validate_field', 'label' => 'Default Language', 'name' => 'default_language', 'value' => $result['default_language']],
               
 		]
 	];
