@@ -8,7 +8,7 @@
         <div class="row">
             <!-- Filter section start-->
             <div class="col-md-7  hidden-pod filter-h" id="listCol">
-                <div class="row mt-4">
+                <div class="row mt-4 none">
                     <h2 class="p-2">{{trans('messages.search.results_for')}} <strong class="text-24">{{$location}}</strong></h2>
                 </div>
 
@@ -16,7 +16,7 @@
                     <div>
                         <ul class="list-inline  pl-4">
                             <li class="list-inline-item mt-4">
-                                <div class="dropdown">
+                                <div class="dropdown none">
                                     <button class="btn text-16 border border-r-25 pl-4 pr-4 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         {{trans('messages.trips_active.location')}}
                                     </button>
@@ -205,7 +205,7 @@
                                 </div>
                             </li>
     
-                            <li class="list-inline-item  mt-4 none">
+                            <li class="list-inline-item  mt-4">
                                 <button type="button"  id="more_filters"   class="font-weight-500 btn text-16 border border-r-25 pl-4 pr-4" data-toggle="modal" data-target="#exampleModalCenter">
                                     {{ trans('messages.search.more_filters') }}
                                 </button>
@@ -523,7 +523,7 @@
                 });
                 markers.push(marker);
 
-                google.maps.event.addListener(marker, 'click', function (e) {
+                google.maps.event.addListener(marker, 'mouseover', function (e) {
                     
                     if(this.content){
                         infowindow.setContent(this.content);
@@ -674,6 +674,11 @@
                                     +'<div class="map-property-name">'
                                         +'<div class="col-xs-12 p-1">'
                                             +'<div class="location-title"><h5>'+properties[key].name+'</h5></div>'
+                                            +'<div class="location-title" style="display: flex">'
+                                            +'<span><h5>'+ properties[key].bedrooms +' Bedrooms, </h5></span>'
+                                            +'<span><h5> '+ properties[key].bathrooms +' Bathrooms, </h5></span>'
+                                            +'<span><h5> $'+ properties[key].property_price.price +'/m </h5></span>'
+                                            +'</div>'
                                         +'</div>'
                                     +'</div>'
                                 };
@@ -717,7 +722,7 @@
                                                                 +'</div>'
                                                             +'</div>'
                                                             
-                                                            +'<div class="review-0 p-3">'
+                                                            +'<div class="review-0 p-3 none">'
                                                                 +'<div class="d-flex justify-content-between">'
                                                                     +'<div>'
                                                                         +'<span><i class="fa fa-star text-14 secondary-text-color"></i>'+' '+ avg_rating
@@ -883,7 +888,7 @@
                 longitude: {{"$long"}}
             },
             radius: 0,
-            zoom: 12,
+            zoom: 15,
             addressFormat: "",
             markerVisible: false,
             markerInCenter: false,

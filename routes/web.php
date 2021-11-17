@@ -25,7 +25,11 @@ Route::get('cron/ical-synchronization','CronController@iCalendarSynchronization'
 
 //user can view it anytime with or without logged in
 Route::group(['middleware' => ['locale']], function () { 
-	Route::get('/', 'HomeController@index');
+	// Route::get('/', 'HomeController@index');
+	Route::get('/', function()
+    {
+		return Redirect::to('/search?location=Glassboro,%20NJ');
+    });
 	Route::post('search/result', 'SearchController@searchResult');
 	Route::get('search', 'SearchController@index');
 	Route::match(array('GET', 'POST'),'properties/{slug}', 'PropertyController@single')->name('property.single');
